@@ -25,7 +25,7 @@
 - Live streams running **24/7** including:
   - 🎮 Gameplay reels
   - 🍜 Cooking shows
-  - 📰 News & Stock tickers
+  - 📰 Stock tickers
   - 🧪 Weather & pollution sensors
 - Fetches real-time data via **REST APIs** (stocks, AQI, weather).
 
