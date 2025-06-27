@@ -7,12 +7,6 @@
 
 ---
 
-## 🚀 Live Demo
-🔗 [Visit Neighbora3D Live](https://your-deployment-link.com)  
-📸 Screenshots & demo videos coming soon below!
-
----
-
 ## 📌 Features
 
 ### 🏙️ Immersive 3D Street View
