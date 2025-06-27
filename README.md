@@ -19,21 +19,26 @@
   - **QR codes** (scan to visit online store!)
   - **Operating hours**
 - Interactive objects and clickable billboards.
+   ![Cake](./assets/JC.png)
 - Built-in **Shopkeeper Dashboard** to edit shop details in real time.
+  ![Update](./assets/UP.png)
 
 ### 📺 Dynamic Billboards
 - Live streams running **24/7** including:
   - 🎮 Gameplay reels
   - 🍜 Cooking shows
   - 📰 Stock tickers
+     ![Video](./assets/VD.png)
   - 🧪 Weather & pollution sensors
+     ![STOCK](./assets/STOCK.png)
 - Fetches real-time data via **REST APIs** (stocks, AQI, weather).
 
 ### 🌗 Day & Night Cycle
 - Smooth transitions from sunrise to sunset.
 - Functional **street lights** and **moving sun/moon** system based on simulated time or real-time clock.
+   ![night mode](./assets/NM.png)
 
-### 🎬 Auto-Updating Movie Theater
+### 🎬 Auto-Updating Movie Theater (in progress)
 - A digital multiplex showcasing:
   - Now playing movies
   - Auto-refreshed **posters**
@@ -46,7 +51,7 @@
 
 | 3D Street View | Smart Shop Boards | Night Mode | 
 |:--:|:--:|:--:|
-| ![street](./assets/streetview.png) | ![shop](./assets/ramenshop.png) | ![theater](./assets/theater.png) |
+| ![street](./assets/SV.png) | ![shop](./assets/BB.png) | ![night mode](./assets/NM.png) |
 
 ---
 
