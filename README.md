@@ -43,9 +43,8 @@
 
 ## 📽️ Screenshots
 
-> Add your screenshots in a folder named `/assets` and replace image paths.
 
-| 3D Street View | Smart Shop Boards | Movie Theater |
+| 3D Street View | Smart Shop Boards | Night Mode | 
 |:--:|:--:|:--:|
 | ![street](./assets/streetview.png) | ![shop](./assets/ramenshop.png) | ![theater](./assets/theater.png) |
 
