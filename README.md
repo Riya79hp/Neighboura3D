@@ -3,8 +3,6 @@
 > **The future of hyperlocal 3D exploration — right in your browser.**  
 > Explore a real-time, interactive, intelligent street experience powered by WebGL, real-world APIs, and creative engineering.
 
-![Neighbora3D Banner](./assets/neighbora3d-banner.png)
-
 ---
 
 ## 📌 Features
