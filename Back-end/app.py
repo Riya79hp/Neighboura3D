@@ -20,7 +20,7 @@ CORS(app)
 # MongoDB Configuration
 app.config["MONGO_URI"] = "mongodb://localhost:27017/shopDB"
 mongo = PyMongo(app)
-
+UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__),'Front-end','my-3d-scene', 'src', 'img')
 def seed_data():
     shops_collection = mongo.db.shops
     if shops_collection.count_documents({}) == 0:
@@ -47,7 +47,14 @@ def seed_data():
             }
         ]
         shops_collection.insert_many(shops)
-
+     # MG Road shops collection
+    mg_road_shops_collection = mongo.db.mgroad_shops
+    if mg_road_shops_collection.count_documents({}) == 0:
+        mg_shops = [
+            {"name": "Palace de versailles", "position": {"x": -6, "z": -30}, "hours": "9:00 AM - 8:00 PM"},
+            {"name": "MoviePlex", "position": {"x": 6, "z": 30}, "hours": "11:00 AM - 9:00 PM"},
+                   ]
+        mg_road_shops_collection.insert_many(mg_shops)
 # Initial shop data
 @app.route('/shops', methods=['GET'])
 def get_shops():
@@ -113,6 +120,47 @@ def take_screenshot():
 
     except Exception as e:
         print("Error taking screenshot:", str(e))  # ✅ Print instead of jsonify
+@app.route('/mgroad_shops', methods=['GET'])
+def get_mgroad_shops():
+    shops_collection = mongo.db.mgroad_shops
+    shops = []
+    for shop in shops_collection.find():
+        shops.append({
+            "id": str(shop['_id']),
+            "name": shop['name'],
+            "hours": shop['hours'],
+            "position": shop['position']
+        })
+    return jsonify(shops)
+@app.route('/update_mgroad_shop', methods=['POST'])
+def update_mgroad_shop():
+    data = request.json
+    shop_id = data['id']
+    update_fields = {}
+
+    if 'name' in data:
+        update_fields['name'] = data['name']
+    if 'hours' in data:
+        update_fields['hours'] = data['hours']
+
+    shops_collection = mongo.db.mgroad_shops
+    shops_collection.update_one(
+        {'_id': ObjectId(shop_id)},
+        {'$set': update_fields}
+    )
+
+    return jsonify({"message": "MG Road Shop updated successfully!"})
+
+@app.route('/replace-image', methods=['POST'])
+def replace_image():
+    file = request.files.get('image')
+    filename = request.form.get('filename')
+
+    if file and filename:
+        save_path = os.path.join(UPLOAD_FOLDER, filename)
+        file.save(save_path)
+        return jsonify({"message": "Image replaced", "updatedPath": f"/static/img/{filename}"})
+    return jsonify({"error": "Missing file or filename"}), 400
 
 if __name__ == "__main__":
     seed_data()  # Manually seed when starting the app
